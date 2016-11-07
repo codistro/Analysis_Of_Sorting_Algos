@@ -2,20 +2,52 @@
 #include<time.h>
 #include<stdlib.h>
 #include"sort.h"
-void display(int *a,int n){
-	int i;
-	for(i = 0;i<n;i++){
-		printf("%d ",a[i]);
-	}
+#define MAX_SIZE 100000
+
+//function to initialize the array with random values
+void randomInit(long *a,long size){
+	int i = 0;
+	for(i = 0;i<size;i++)
+		a[i] = rand();
 }
 int main(){
-    int a[] = {9,8,7,6,5,4,3,2,1,0};
-    //BubbleSort(a,10);
-    //InsertionSort(a,10);
-    //SelectionSort(a,10);
-    //quick(a,0,9);
-    //MergeSort(a,10);
-    //heapSort(a,10);
-    display(a,10);
+    long a[MAX_SIZE];
+    double timeTaken;
+    clock_t time;
+
+    //initializing array with random values
+    randomInit(a,MAX_SIZE);
+
+    time = clock();  //clock starts
+
+    //calling Bubble Sort
+    BubbleSort(a,MAX_SIZE);
+
+    time = clock() - time; //clock ends
+
+    //measuring time taken by Bubble sort Algo
+    timeTaken = (double)(time/CLOCKS_PER_SEC);
+
+    //Displaying time taken by Bubble Sort
+    printf("Bubble Sort\t%f\n",timeTaken);
+
+    //******************************
+
+    //initializing array with random values
+    randomInit(a,MAX_SIZE);
+
+    time = clock();  //clock starts
+
+    //calling Selection Sort
+    SelectionSort(a,MAX_SIZE);
+
+    time = clock() - time; //clock ends
+
+    //measuring time taken by Selection sort Algo
+    timeTaken = (double)(time/CLOCKS_PER_SEC);
+
+    //Displaying time taken by Selection Sort
+    printf("Selection Sort\t%f\n",timeTaken);
     return 0;
 }
+
