@@ -13,20 +13,20 @@ void randomInit(long *a,long size){
 int main(){
     long a[MAX_SIZE];
     double timeTaken;
-    clock_t time;
+    clock_t start,end;
 
     //initializing array with random values
     randomInit(a,MAX_SIZE);
 
-    time = clock();  //clock starts
+    start = clock();  //clock starts
 
     //calling Bubble Sort
     BubbleSort(a,MAX_SIZE);
 
-    time = clock() - time; //clock ends
+    end = clock(); //clock ends
 
     //measuring time taken by Bubble sort Algo
-    timeTaken = (double)(time/CLOCKS_PER_SEC);
+    timeTaken = (double)(end-start)/CLOCKS_PER_SEC;
 
     //Displaying time taken by Bubble Sort
     printf("Bubble Sort\t%f\n",timeTaken);
@@ -36,18 +36,36 @@ int main(){
     //initializing array with random values
     randomInit(a,MAX_SIZE);
 
-    time = clock();  //clock starts
+    start = clock();  //clock starts
 
     //calling Selection Sort
     SelectionSort(a,MAX_SIZE);
 
-    time = clock() - time; //clock ends
+    end = clock(); //clock ends
 
     //measuring time taken by Selection sort Algo
-    timeTaken = (double)(time/CLOCKS_PER_SEC);
+    timeTaken = (double)(end-start)/CLOCKS_PER_SEC;
 
     //Displaying time taken by Selection Sort
     printf("Selection Sort\t%f\n",timeTaken);
+
+    //******************************
+
+    //initializing array with random values
+    randomInit(a,MAX_SIZE);
+
+    start = clock();  //clock starts
+
+    //calling Insertion Sort
+    InsertionSort(a,MAX_SIZE);
+
+    end = clock(); //clock ends
+
+    //measuring time taken by Insertion sort Algo
+    timeTaken = (double)(end-start)/CLOCKS_PER_SEC;
+
+    //Displaying time taken by Selection Sort
+    printf("Insertion Sort\t%f\n",timeTaken);
     return 0;
 }
 
