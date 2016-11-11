@@ -69,7 +69,7 @@ void InsertionSort(long *a,long size){
             j--;
         }
         a[j] = temp;
-        
+
     }
 }
 
@@ -97,7 +97,7 @@ clock_t start,end;
 void MergeSort(long *a,long size){
     if(size == 1)
         return;
-    long fh[100000],fhSize = 0, sh[100000],shSize = 0;
+    long fh[6000],fhSize = 0, sh[6000],shSize = 0;
     long mid = size/2,i,j;
     for(i = 0;i<mid;i++)
         fh[i] = a[i];
@@ -108,7 +108,7 @@ void MergeSort(long *a,long size){
     MergeSort(fh,fhSize);
     MergeSort(sh,shSize);
     Merge(a,fh,fhSize,sh,shSize);
-   
+
 }
 
 
@@ -124,7 +124,7 @@ long divide(long *a,long low,long high){
     temp = a[low];
     a[low] = a[mid];
     a[mid] = temp;
-    pivot = a[low]; 
+    pivot = a[low];
     lastSmall = low;
 
     for(i = low + 1;i<=high;i++){
@@ -142,7 +142,7 @@ long divide(long *a,long low,long high){
 
     return lastSmall;
 
-} 
+}
 
 
 void quick(long* a,long low,long high){
