@@ -15,6 +15,11 @@ int main(){
     double timeTaken;
     clock_t start,end;
 
+    FILE *fp;
+
+    //creating a .csv file for plotting graph
+    fp = fopen("graph.csv","w");
+
     //initializing array with random values
     randomInit(a,MAX_SIZE);
 
@@ -30,6 +35,9 @@ int main(){
 
     //Displaying time taken by Bubble Sort
     printf("Bubble Sort\t%f\n",timeTaken);
+
+    //writing values to csv file
+    fprintf(fp,"%s,%f\n","Bubble Sort",timeTaken);
 
     //******************************
 
@@ -49,6 +57,9 @@ int main(){
     //Displaying time taken by Selection Sort
     printf("Selection Sort\t%f\n",timeTaken);
 
+    //writing values to csv file
+    fprintf(fp,"%s,%f\n","Selection Sort",timeTaken);
+
     //******************************
 
     //initializing array with random values
@@ -66,6 +77,9 @@ int main(){
 
     //Displaying time taken by Selection Sort
     printf("Insertion Sort\t%f\n",timeTaken);
+
+    //writing values to csv file
+    fprintf(fp,"%s,%f\n","Insertion Sort",timeTaken);
 
     //******************************
 
@@ -85,6 +99,9 @@ int main(){
     //Displaying time taken by Selection Sort
     printf("Merge Sort\t%f\n",timeTaken);
 
+    //writing values to csv file
+    fprintf(fp,"%s,%f\n","Merge Sort",timeTaken);
+
     //******************************
 
     //initializing array with random values
@@ -102,6 +119,9 @@ int main(){
 
     //Displaying time taken by Selection Sort
     printf("Quick Sort\t%f\n",timeTaken);
+
+    //writing values to csv file
+    fprintf(fp,"%s,%f\n","Quick Sort",timeTaken);
 
 
      //******************************
@@ -121,6 +141,9 @@ int main(){
 
     //Displaying time taken by Selection Sort
     printf("Heap Sort\t%f\n",timeTaken);
+
+    //writing values to csv file
+    fprintf(fp,"%s,%f\n","Heap Sort",timeTaken);
 
 
     return 0;
