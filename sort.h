@@ -127,7 +127,7 @@ long divide(long *a,long low,long high){
     pivot = a[low];
     lastSmall = low;
 
-    for(i = low + 1;i<=high;i++){
+    for(i = low + 1;i<high;i++){
         if(a[i] < pivot){
             lastSmall++;
             temp = a[lastSmall];
